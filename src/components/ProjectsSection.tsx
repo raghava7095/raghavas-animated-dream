@@ -8,100 +8,79 @@ import {
   ExternalLink, 
   Play, 
   Filter,
-  Zap,
+  Code2,
   Database,
   Smartphone,
   Globe,
   Brain,
-  GamepadIcon
+  Zap
 } from 'lucide-react';
 
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'GapFinder Explorer',
     category: 'Web Development',
-    description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
-    image: '/api/placeholder/400/250',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: true,
-    icon: Globe
+    description: 'Engineered an AI-powered gap analysis tool that identified missing concepts from user input with 90% accuracy, generating tailored learning recommendations. Improved user comprehension by 40% through a clean, responsive UI and interactive topic workflows',
+    image: '/gapfinder.png',
+    tech: ['React', 'Node.js', 'Express', 'Gemini API'],
+    github: 'https://github.com/d4taphant0m/gapfinder-explorer-launch',
+    demo: 'https://gapfinder-explorer-launch.vercel.app/'
   },
   {
     id: 2,
-    title: 'Algorithm Visualizer',
-    category: 'Data Structures',
-    description: 'Interactive web app to visualize sorting and pathfinding algorithms. Built with React and custom animations.',
-    image: '/api/placeholder/400/250',
-    tech: ['React', 'TypeScript', 'D3.js', 'Framer Motion'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: true,
-    icon: Brain
+    title: 'NoteNexus',
+    category: 'Web Development',
+    description: 'AI-powered YouTube lecture notes platform that processes videos into summaries, flashcards, and quizzes. Automated study material creation by 70% with secure user authentication (JWT, Google OAuth) and responsive UI.',
+    image: '/notenexus.png',
+    tech: ['React', 'Node.js', 'MongoDB', 'Gemini AI API'],
+    github: 'https://github.com/raghava7095/frontend-notenexus',
+    demo: 'https://frontend-notenexus.vercel.app/dashboard'
   },
   {
     id: 3,
-    title: 'Crypto Portfolio Tracker',
+    title: 'BargainBot Ninja',
     category: 'Web Development',
-    description: 'Real-time cryptocurrency portfolio tracking with charts and alerts. Integrated with multiple crypto APIs.',
-    image: '/api/placeholder/400/250',
-    tech: ['Next.js', 'Chart.js', 'Firebase', 'Crypto APIs'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: false,
-    icon: Database
+    description: 'AI-powered deal comparison platform that enables users to compare product prices across multiple e-commerce sites in real-time with dynamic UI components and responsive layouts.',
+    image: '/bargain.png',
+    tech: ['React', 'Tailwind CSS', 'shadcn/ui', 'Vercel'],
+    github: 'https://github.com/raghava7095/bargainbot-ninja',
+    demo: 'https://bargainbot-ninja.vercel.app/'
   },
   {
     id: 4,
-    title: 'Task Management App',
-    category: 'Mobile Development',
-    description: 'Cross-platform mobile app for task management with offline sync and collaboration features.',
-    image: '/api/placeholder/400/250',
-    tech: ['React Native', 'Firebase', 'Redux', 'AsyncStorage'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: false,
-    icon: Smartphone
+    title: 'EduConnect LMS',
+    category: 'Web Development',
+    description: 'Comprehensive Learning Management System (LMS) that streamlines academic, cultural, and skill development activities for college students, featuring AI-based doubt-clearing and user authentication.',
+    image: '/lms.png',
+    tech: ['HTML', 'CSS', 'JavaScript', 'AI Chatbot'],
+    github: 'https://github.com/raghava7095/mini-project',
+    demo: 'https://parthasrikar.github.io/mini-project/'
   },
   {
     id: 5,
-    title: 'Chess Engine AI',
-    category: 'Artificial Intelligence',
-    description: 'Chess engine with minimax algorithm and alpha-beta pruning. Includes web interface for gameplay.',
-    image: '/api/placeholder/400/250',
-    tech: ['Python', 'JavaScript', 'Chess.js', 'Flask'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: true,
-    icon: GamepadIcon
+    title: 'Personal Portfolio',
+    category: 'Web Development',
+    description: 'Modern and responsive personal portfolio website showcasing projects, skills, and achievements with a clean UI built using ReactJS and Tailwind CSS.',
+    image: '/portfolio.png',
+    tech: ['React', 'Tailwind CSS', 'GitHub Pages', 'Vercel'],
+    github: 'https://github.com/raghava7095/my_portfolio',
+    demo: 'https://my-portfolio-mu-bice-58.vercel.app/'
   },
   {
     id: 6,
-    title: 'Weather Dashboard',
+    title: 'Skyline Airlines',
     category: 'Web Development',
-    description: 'Beautiful weather dashboard with location-based forecasts and interactive maps.',
-    image: '/api/placeholder/400/250',
-    tech: ['Vue.js', 'OpenWeather API', 'Mapbox', 'Tailwind'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: false,
-    icon: Zap
+    description: 'Robust airline management system for managing flights, bookings, crew, and tickets with a visually appealing interface and dynamic animations.',
+    image: '/Airports.jpg',
+    tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+    github: 'https://github.com/raghava7095/Airlines',
+    demo: 'https://bharath78935.github.io/Airlines/Airlines--main/hello.html'
   }
 ];
 
-const categories = ['All', 'Web Development', 'Mobile Development', 'Data Structures', 'Artificial Intelligence'];
-
 export default function ProjectsSection() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
-
-  const featuredProjects = projects.filter(project => project.featured);
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -119,144 +98,38 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold gradient-text mb-6">Featured Projects</h2>
+          <h2 className="text-5xl font-bold gradient-text mb-6">My Projects</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A showcase of my development journey - from competitive programming solutions to full-stack applications
           </p>
         </motion.div>
 
-        {/* Featured Projects Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl font-bold mb-8 flex items-center">
-            <Zap className="w-6 h-6 text-primary mr-2" />
-            Featured Projects
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project, index) => {
-              const IconComponent = project.icon;
-              return (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  onHoverStart={() => setHoveredProject(project.id)}
-                  onHoverEnd={() => setHoveredProject(null)}
-                >
-                  <Card className="glass-effect border-0 shadow-card hover:shadow-neon transition-all duration-300 group overflow-hidden">
-                    <div className="relative overflow-hidden">
-                      {/* Project image placeholder with icon */}
-                      <div className="h-48 bg-gradient-mesh flex items-center justify-center relative">
-                        <IconComponent className="w-16 h-16 text-foreground/30" />
-                        <motion.div
-                          className="absolute inset-0 bg-black/50 flex items-center justify-center space-x-4"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <Button size="sm" variant="outline" className="neon-border">
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                          <Button size="sm" className="bg-gradient-primary">
-                            <Play className="w-4 h-4 mr-2" />
-                            Demo
-                          </Button>
-                        </motion.div>
-                      </div>
-                    </div>
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <CardTitle className="text-lg group-hover:gradient-text transition-all">
-                          {project.title}
-                        </CardTitle>
-                        <Badge variant="secondary" className="text-xs">
-                          {project.category}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs hover:neon-border transition-all">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <div className="flex items-center justify-center space-x-2 mb-8">
-            <Filter className="w-5 h-5 text-muted-foreground" />
-            <span className="text-muted-foreground">Filter by category:</span>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full border transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-primary text-primary-foreground border-primary shadow-neon'
-                    : 'glass-effect border-border hover:border-primary/50'
-                }`}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* All Projects Grid */}
+        {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={selectedCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.map((project, index) => {
-              const IconComponent = project.icon;
-              return (
+            {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: index * 0.1 }}
                   layout
                 >
                   <Card className="glass-effect border-0 shadow-card hover:shadow-glow transition-all duration-300 group h-full">
                     <div className="relative overflow-hidden">
-                      <div className="h-40 bg-gradient-dark flex items-center justify-center">
-                        <IconComponent className="w-12 h-12 text-foreground/20 group-hover:text-primary/50 transition-colors" />
+                      <div 
+                        className="h-40 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${project.image})` }}
+                      >
+                        <div className="absolute inset-0 bg-black/30"></div>
                       </div>
                       <div className="absolute top-4 right-4">
-                        <Badge variant={project.featured ? 'default' : 'secondary'} className="text-xs">
-                          {project.featured ? 'Featured' : project.category}
+                        <Badge variant="secondary" className="text-xs">
+                          {project.category}
                         </Badge>
                       </div>
                     </div>
@@ -280,20 +153,23 @@ export default function ProjectsSection() {
                         )}
                       </div>
                       <div className="flex space-x-2 pt-2">
-                        <Button size="sm" variant="outline" className="flex-1 text-xs">
-                          <Github className="w-3 h-3 mr-1" />
-                          Code
-                        </Button>
-                        <Button size="sm" className="flex-1 bg-gradient-primary text-xs">
-                          <ExternalLink className="w-3 h-3 mr-1" />
-                          Live
-                        </Button>
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                          <Button size="sm" variant="outline" className="w-full text-xs">
+                            <Github className="w-3 h-3 mr-1" />
+                            Code
+                          </Button>
+                        </a>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex-1">
+                          <Button size="sm" className="w-full bg-gradient-primary text-xs">
+                            <ExternalLink className="w-3 h-3 mr-1" />
+                            Live
+                          </Button>
+                        </a>
                       </div>
                     </CardContent>
                   </Card>
                 </motion.div>
-              );
-            })}
+              ))}
           </motion.div>
         </AnimatePresence>
 
@@ -310,10 +186,12 @@ export default function ProjectsSection() {
               <p className="text-muted-foreground mb-6 max-w-md">
                 Check out my GitHub profile for more projects and contributions to open source.
               </p>
+              <a href="https://github.com/raghava7095" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-primary hover:bg-gradient-glow shadow-neon">
                 <Github className="w-5 h-5 mr-2" />
                 View GitHub Profile
               </Button>
+              </a>
             </CardContent>
           </Card>
         </motion.div>

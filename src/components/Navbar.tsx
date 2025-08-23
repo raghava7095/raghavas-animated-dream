@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Menu, X, Download } from 'lucide-react';
+import { Github, Linkedin, Instagram, Menu, X, Download, ExternalLink } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -67,37 +67,48 @@ export default function Navbar() {
           {/* Social Links & Resume */}
           <div className="hidden md:flex items-center space-x-4">
             <motion.a
-              href="https://github.com"
+              href="https://github.com/raghava7095"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               className="text-foreground hover:text-primary transition-colors p-2"
+              title="GitHub"
             >
               <Github size={20} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/raghava-dhanukonda-9b3243254/"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
               className="text-foreground hover:text-primary transition-colors p-2"
+              title="LinkedIn"
             >
               <Linkedin size={20} />
             </motion.a>
             <motion.a
-              href="https://twitter.com"
+              href="https://www.instagram.com/raghava_.27.03/"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               className="text-foreground hover:text-primary transition-colors p-2"
+              title="Instagram"
             >
-              <Twitter size={20} />
+              <Instagram size={20} />
             </motion.a>
-            <Button
-              variant="outline"
-              size="sm"
-              className="neon-border hover:glow-effect transition-all duration-300"
-            >
-              <Download size={16} className="mr-2" />
-              Resume
-            </Button>
+            <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                size="sm"
+                className="neon-border hover:glow-effect transition-all duration-300"
+              >
+                Resume
+                <ExternalLink className="w-4 h-4 mr-2" />
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -135,19 +146,39 @@ export default function Navbar() {
                   </motion.a>
                 ))}
                 <div className="flex items-center space-x-4 pt-4 border-t border-border">
-                  <a href="https://github.com" className="text-foreground hover:text-primary">
+                  <a 
+                    href="https://github.com/raghava7095" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary"
+                    title="GitHub"
+                  >
                     <Github size={20} />
                   </a>
-                  <a href="https://linkedin.com" className="text-foreground hover:text-primary">
+                  <a 
+                    href="https://www.linkedin.com/in/raghava-dhanukonda-9b3243254/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary"
+                    title="LinkedIn"
+                  >
                     <Linkedin size={20} />
                   </a>
-                  <a href="https://twitter.com" className="text-foreground hover:text-primary">
-                    <Twitter size={20} />
+                  <a 
+                    href="https://www.instagram.com/raghava_.27.03/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary"
+                    title="Instagram"
+                  >
+                    <Instagram size={20} />
                   </a>
-                  <Button variant="outline" size="sm" className="neon-border">
-                    <Download size={16} className="mr-2" />
-                    Resume
-                  </Button>
+                  <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button variant="outline" size="sm" className="neon-border w-full">
+                      <Download size={16} className="mr-2" />
+                      Resume
+                    </Button>
+                  </a>
                 </div>
               </div>
             </motion.div>

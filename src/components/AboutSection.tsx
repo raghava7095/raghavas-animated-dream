@@ -52,16 +52,17 @@ export default function AboutSection() {
                   <div className="flex items-center space-x-4 text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <Calendar className="w-4 h-4" />
-                      <span>2021 - Present</span>
+                      <span>2022 - Present</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <MapPin className="w-4 h-4" />
-                      <span>India</span>
+                      <span>Visakhapatnam</span>
                     </div>
                   </div>
                   <p className="text-muted-foreground">
-                    Pursuing Bachelor's in Computer Science with focus on software development,
-                    algorithms, and competitive programming.
+                    <span>Vignan's Institute Of Information Technology</span>
+                    <br />
+                    <span>CGPA:8.9</span>
                   </p>
                 </div>
               </CardContent>
@@ -76,39 +77,8 @@ export default function AboutSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm passionate about creating innovative solutions and pushing the boundaries of what's possible with code. 
-                  My journey in competitive programming has sharpened my problem-solving skills, while my projects reflect 
-                  my commitment to building meaningful applications that make a difference.
+                I’m passionate about turning ideas into real-world applications and pushing the boundaries of what’s possible with code. Competitive programming has trained me to think critically and solve problems efficiently, while my projects show my love for building meaningful, end-to-end solutions.I enjoy exploring new technologies, learning fast, and applying that knowledge to create products that add value. Whether it’s through hackathons, internships, or leading sessions for my peers, I’ve always been driven by curiosity, collaboration, and the impact technology can have on people’s lives.Beyond tech, my involvement in the Sathya Seva Organisation has helped me grow as a disciplined and empathetic person, which I carry into every team I work with.
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Trophy className="w-6 h-6 text-accent" />
-                  <span>Quick Stats</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary">500+</div>
-                    <div className="text-sm text-muted-foreground">Problems Solved</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-secondary">15+</div>
-                    <div className="text-sm text-muted-foreground">Projects Built</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent">3+</div>
-                    <div className="text-sm text-muted-foreground">Years Coding</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary-glow">Top 10%</div>
-                    <div className="text-sm text-muted-foreground">LeetCode Ranking</div>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </motion.div>
@@ -120,51 +90,34 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <Card className="glass-effect border-0 shadow-card">
+           <Card className="glass-effect border-0 shadow-card">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Code2 className="w-6 h-6 text-primary" />
-                  <span>Core Competencies</span>
+                  <Trophy className="w-6 h-6 text-accent" />
+                  <span>Quick Stats</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold mb-2">Programming Languages</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {['C++', 'Python', 'JavaScript', 'TypeScript', 'Java', 'Go'].map((lang) => (
-                        <Badge key={lang} variant="outline" className="hover:neon-border transition-all">
-                          {lang}
-                        </Badge>
-                      ))}
-                    </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">900+</div>
+                    <div className="text-sm text-muted-foreground">Problems Solved</div>
                   </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-2">Frameworks & Tools</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {['React', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Docker'].map((tech) => (
-                        <Badge key={tech} variant="secondary" className="hover:glow-effect transition-all">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-secondary">10+</div>
+                    <div className="text-sm text-muted-foreground">Projects Built</div>
                   </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-2">Specializations</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {['Data Structures', 'Algorithms', 'Web Development', 'System Design'].map((skill) => (
-                        <Badge key={skill} className="bg-gradient-primary hover:bg-gradient-glow">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">3+</div>
+                    <div className="text-sm text-muted-foreground">Years Coding</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary-glow">2+</div>
+                    <div className="text-sm text-muted-foreground">Internships</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
-
             <Card className="glass-effect border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Current Focus</CardTitle>
@@ -186,23 +139,29 @@ export default function AboutSection() {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 animate-pulse" />
-                  <div>
-                    <h4 className="font-medium">Open Source Contribution</h4>
-                    <p className="text-sm text-muted-foreground">Contributing to community projects and building my portfolio</p>
-                  </div>
+                 <div>
+  <h4 className="font-medium">Exploring Artificial Intelligence</h4>
+  <p className="text-sm text-muted-foreground">
+    Innovating with AI through real-world projects while sharing knowledge with the community.
+  </p>
+</div> 
                 </div>
               </CardContent>
             </Card>
 
             <div className="flex gap-4">
+              <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view">
               <Button className="flex-1 bg-gradient-primary hover:bg-gradient-glow shadow-neon">
-                <Download className="w-4 h-4 mr-2" />
+              <ExternalLink className="w-4 h-4 mr-2" />
                 Full Resume
               </Button>
+              </a>
+              <a href="https://www.linkedin.com/in/raghava-dhanukonda-9b3243254/">
               <Button variant="outline" className="flex-1 neon-border hover:glow-effect">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 LinkedIn
               </Button>
+              </a>
             </div>
           </motion.div>
         </div>

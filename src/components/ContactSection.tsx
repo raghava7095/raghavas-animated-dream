@@ -33,7 +33,7 @@ const contactMethods = [
     title: 'LinkedIn',
     value: 'Connect on LinkedIn',
     description: 'Professional networking',
-    href: 'https://linkedin.com/in/raghava',
+    href: 'https://linkedin.com/in/raghava-dhanukonda-9b3243254',
     color: 'text-blue-400'
   },
   {
@@ -41,17 +41,9 @@ const contactMethods = [
     title: 'GitHub',
     value: 'Follow on GitHub',
     description: 'View my code and projects',
-    href: 'https://github.com/raghava',
+    href: 'https://github.com/raghava7095',
     color: 'text-accent'
-  },
-  {
-    icon: Twitter,
-    title: 'Twitter',
-    value: '@raghava_dev',
-    description: 'Tech discussions and updates',
-    href: 'https://twitter.com/raghava_dev',
-    color: 'text-secondary'
-  },
+  }
 ];
 
 const quickActions = [
@@ -288,42 +280,6 @@ export default function ContactSection() {
                 })}
               </CardContent>
             </Card>
-
-            {/* Quick Actions */}
-            <Card className="glass-effect border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="text-xl">Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {quickActions.map((action, index) => {
-                  const IconComponent = action.icon;
-                  return (
-                    <motion.div
-                      key={action.title}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        className={`w-full justify-start text-left p-4 h-auto ${action.color} hover:opacity-90 transition-all`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <IconComponent className="w-5 h-5" />
-                          <div>
-                            <div className="font-semibold">{action.title}</div>
-                            <div className="text-xs opacity-90">{action.description}</div>
-                          </div>
-                        </div>
-                      </Button>
-                    </motion.div>
-                  );
-                })}
-              </CardContent>
-            </Card>
-
             {/* Location */}
             <Card className="glass-effect border-0 shadow-card">
               <CardContent className="p-6">

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+// Progress component removed as it's no longer used
 import { 
   Trophy, 
   Target, 
@@ -20,85 +20,77 @@ import {
 const platforms = [
   {
     name: 'LeetCode',
-    username: 'raghava_codes',
-    rating: 1800,
-    maxRating: 1850,
-    solved: 450,
-    total: 2500,
-    rank: 'Knight',
+    username: 'raghava7095',
+    rating: 1653,
+    maxRating: 1742,
+    solved: 480,
+    rank: 'Knight Soon',
     color: 'text-orange-400',
     bgColor: 'bg-orange-400/10',
     achievements: [
-      '50 Days Badge 2023',
-      'Top 15% Global Ranking',
-      'Contest Rating 1800+'
+      '100 Days Badge 2025',
+      'Top 10% Global Ranking',
+      'Contest Rating 1742+'
     ],
-    recentActivity: 'Solved 5 problems this week',
+    recentActivity: 'Solved 60+ problems this month',
     icon: Code
   },
   {
-    name: 'Codeforces',
-    username: 'raghava_cf',
-    rating: 1450,
-    maxRating: 1520,
-    solved: 200,
-    total: 8000,
-    rank: 'Specialist',
-    color: 'text-cyan-400',
-    bgColor: 'bg-cyan-400/10',
-    achievements: [
-      'Specialist Rating Achieved',
-      '25+ Contest Participations',
-      'Solved Div2 C Problems'
-    ],
-    recentActivity: 'Participated in Div2 Contest',
-    icon: Target
-  },
-  {
-    name: 'GeeksforGeeks',
-    username: 'raghava_gfg',
-    rating: 1650,
-    maxRating: 1700,
-    solved: 300,
-    total: 1500,
-    rank: 'Expert',
-    color: 'text-green-400',
-    bgColor: 'bg-green-400/10',
-    achievements: [
-      'Problem of the Day Streak 50+',
-      'Expert Level Achieved',
-      'Weekly Contest Top 100'
-    ],
-    recentActivity: 'Maintained POTD streak',
-    icon: Brain
-  },
-  {
     name: 'CodeChef',
-    username: 'raghava_cc',
-    rating: 1580,
-    maxRating: 1620,
-    solved: 180,
-    total: 4000,
+    username: 'raghava7095',
+    rating: 1626,
+    maxRating: 1626,
+    solved: 406,
     rank: '3 Star',
     color: 'text-yellow-400',
     bgColor: 'bg-yellow-400/10',
     achievements: [
       '3 Star Rating',
       'Long Challenge Participant',
-      'Monthly Contest Regular'
+      '90+ Weekly Contests Participated'
     ],
-    recentActivity: 'Solved medium difficulty problems',
+    recentActivity: 'Soon 4 Star',
     icon: Zap
+  },
+  {
+    name: 'GeeksforGeeks',
+    username: 'raghavadhany269',
+    rating: 0,
+    maxRating: 0,
+    solved: 40,
+    rank: 'None',
+    color: 'text-green-400',
+    bgColor: 'bg-green-400/10',
+    achievements: [
+      'Problem of the Day Streak 02+',
+      'Solved 40+ problems',
+    ],
+    recentActivity: 'Maintained POTD streak',
+    icon: Brain
+  },
+  {
+    name: 'Codeforces',
+    username: 'raghava7095',
+    rating: 636,
+    maxRating: 636,
+    solved: 3,
+    rank: 'Newbie',
+    color: 'text-cyan-400',
+    bgColor: 'bg-cyan-400/10',
+    achievements: [
+      'Soon Specialist Rating ',
+      '1st Contest Participation with rank 683 globally',
+    ],
+    recentActivity: 'Participated in Div2 Contest',
+    icon: Target
   }
 ];
 
-const skillBreakdown = [
-  { skill: 'Dynamic Programming', level: 85, problems: 120 },
-  { skill: 'Graph Algorithms', level: 80, problems: 95 },
-  { skill: 'Data Structures', level: 90, problems: 150 },
-  { skill: 'Greedy Algorithms', level: 75, problems: 80 },
-  { skill: 'String Algorithms', level: 70, problems: 65 },
-  { skill: 'Number Theory', level: 65, problems: 45 }
+const contestHistory = [
+  { name: 'LeetCode Weekly 250', rank: 150, total: 15000, ratingChange: '+45' },
+  { name: 'Codeforces Round #750', rank: 850, total: 20000, ratingChange: '+32' },
+  { name: 'LeetCode Biweekly 70', rank: 320, total: 12000, ratingChange: '+28' },
+  { name: 'CodeChef Long 2022', rank: 1500, total: 5000, ratingChange: '+50' },
 ];
 
 const recentAchievements = [
@@ -163,7 +155,7 @@ export default function CompetitiveProgramming() {
                   whileHover={{ scale: 1.05 }}
                   className="space-y-2"
                 >
-                  <div className="text-3xl font-bold gradient-text">1130+</div>
+                  <div className="text-3xl font-bold gradient-text">900+</div>
                   <div className="text-muted-foreground">Problems Solved</div>
                 </motion.div>
                 <motion.div
@@ -177,14 +169,14 @@ export default function CompetitiveProgramming() {
                   whileHover={{ scale: 1.05 }}
                   className="space-y-2"
                 >
-                  <div className="text-3xl font-bold text-secondary">1850</div>
+                  <div className="text-3xl font-bold text-secondary">1742</div>
                   <div className="text-muted-foreground">Highest Rating</div>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className="space-y-2"
                 >
-                  <div className="text-3xl font-bold text-accent">50+</div>
+                  <div className="text-3xl font-bold text-accent">120+</div>
                   <div className="text-muted-foreground">Contest Participations</div>
                 </motion.div>
               </div>
@@ -203,8 +195,6 @@ export default function CompetitiveProgramming() {
           <div className="grid md:grid-cols-2 gap-8">
             {platforms.map((platform, index) => {
               const IconComponent = platform.icon;
-              const solvedPercentage = (platform.solved / platform.total) * 100;
-              
               return (
                 <motion.div
                   key={platform.name}
@@ -232,27 +222,20 @@ export default function CompetitiveProgramming() {
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                      {/* Rating Display */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-2xl font-bold">{platform.rating}</div>
-                          <div className="text-sm text-muted-foreground">
-                            Max: {platform.maxRating}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <h4 className="font-semibold text-sm text-muted-foreground">Rating</h4>
+                          <div className="text-xl font-bold">
+                            <span className={platform.color}>{platform.rating}</span>
+                            {platform.maxRating > platform.rating && (
+                              <span className="text-muted-foreground text-sm ml-1">→ {platform.maxRating}</span>
+                            )}
                           </div>
                         </div>
-                        <div className="text-right">
-                          <div className="text-lg font-semibold">{platform.solved}</div>
-                          <div className="text-sm text-muted-foreground">Problems Solved</div>
+                        <div className="space-y-1">
+                          <h4 className="font-semibold text-sm text-muted-foreground">Solved</h4>
+                          <div className="text-xl font-bold">{platform.solved}+</div>
                         </div>
-                      </div>
-
-                      {/* Progress Bar */}
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span>Progress</span>
-                          <span>{solvedPercentage.toFixed(1)}%</span>
-                        </div>
-                        <Progress value={solvedPercentage} className="h-2" />
                       </div>
 
                       {/* Achievements */}
@@ -271,10 +254,21 @@ export default function CompetitiveProgramming() {
                       {/* Recent Activity */}
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-muted-foreground">{platform.recentActivity}</span>
-                        <Button size="sm" variant="outline" className="text-xs">
-                          <ExternalLink className="w-3 h-3 mr-1" />
-                          Visit
-                        </Button>
+                        <a 
+                          href={
+                            platform.name === 'LeetCode' ? 'https://leetcode.com/u/raghava7095/' :
+                            platform.name === 'CodeChef' ? 'https://www.codechef.com/users/raghava7095' :
+                            platform.name === 'GeeksforGeeks' ? 'https://www.geeksforgeeks.org/user/raghavadhany269/' :
+                            'https://codeforces.com/profile/raghava7095'
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button size="sm" variant="outline" className="text-xs">
+                            <ExternalLink className="w-3 h-3 mr-1" />
+                            Visit Profile
+                          </Button>
+                        </a>
                       </div>
                     </CardContent>
                   </Card>
@@ -284,51 +278,48 @@ export default function CompetitiveProgramming() {
           </div>
         </motion.div>
 
-        {/* Skills Breakdown */}
+        {/* Contest History - Commented out for future use */}
+        {/* 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-3xl font-bold text-center mb-12">Algorithm Mastery</h3>
-          <Card className="glass-effect border-0 shadow-card">
-            <CardContent className="p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                {skillBreakdown.map((skill, index) => (
-                  <motion.div
-                    key={skill.skill}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="space-y-3"
-                  >
-                    <div className="flex justify-between items-center">
-                      <h4 className="font-semibold">{skill.skill}</h4>
-                      <div className="text-right">
-                        <Badge variant="secondary">{skill.level}%</Badge>
-                        <div className="text-sm text-muted-foreground">{skill.problems} solved</div>
+          <h3 className="text-3xl font-bold text-center mb-12">Contest History</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {contestHistory.map((contest, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Card className="glass-effect border-0 shadow-card hover:shadow-glow transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="p-3 rounded-full bg-card text-primary">
+                        <Code className="w-6 h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold">{contest.name}</h4>
+                          <Badge variant="outline" className="text-xs">
+                            Rank {contest.rank} / {contest.total}
+                          </Badge>
+                        </div>
+                        <p className="text-muted-foreground text-sm">Rating Change: {contest.ratingChange}</p>
                       </div>
                     </div>
-                    <div className="relative">
-                      <Progress value={skill.level} className="h-3" />
-                      <motion.div
-                        className="absolute top-0 left-0 h-full bg-gradient-primary rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Recent Achievements */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -370,6 +361,7 @@ export default function CompetitiveProgramming() {
             })}
           </div>
         </motion.div>
+        */}
 
         {/* Call to Action */}
         <motion.div
@@ -385,14 +377,18 @@ export default function CompetitiveProgramming() {
                 Want to practice together or discuss algorithms? Let's connect and solve some challenging problems!
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-gradient-primary hover:bg-gradient-glow shadow-neon">
-                  <Code className="w-5 h-5 mr-2" />
-                  View Profiles
-                </Button>
-                <Button variant="outline" className="neon-border hover:glow-effect">
-                  <Timer className="w-5 h-5 mr-2" />
-                  Practice Together
-                </Button>
+                <a href="#cp" className="w-full sm:w-auto">
+                  <Button className="bg-gradient-primary hover:bg-gradient-glow shadow-neon w-full">
+                    <Code className="w-5 h-5 mr-2" />
+                    View Profiles
+                  </Button>
+                </a>
+                <a href="#contact" className="w-full sm:w-auto">
+                  <Button variant="outline" className="neon-border hover:glow-effect w-full">
+                    <Timer className="w-5 h-5 mr-2" />
+                    Practice Together
+                  </Button>
+                </a>
               </div>
             </CardContent>
           </Card>

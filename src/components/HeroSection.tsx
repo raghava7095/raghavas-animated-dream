@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, MapPin, Code, Sparkles } from 'lucide-react';
+import { Download, MapPin, Code, Sparkles, ExternalLink } from 'lucide-react';
 import ragahavaPhoto from '@/assets/raghava-photo.jpg';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function HeroSection() {
   return (
@@ -39,17 +40,6 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-8"
         >
-          {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Badge variant="secondary" className="glass-effect px-4 py-2 text-sm">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Available for opportunities
-            </Badge>
-          </motion.div>
 
           {/* Name with Glitch Effect */}
           <div className="space-y-4">
@@ -71,15 +61,30 @@ export default function HeroSection() {
             </motion.h2>
           </div>
 
-          {/* Subtitle */}
-          <motion.p
+          {/* Subtitle with Type Animation */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-xl text-muted-foreground"
+            className="text-xl text-muted-foreground min-h-[32px] flex items-center"
           >
-            Student So far...! 🚀
-          </motion.p>
+            <TypeAnimation
+              sequence={[
+                'Software Engineer 🚀',
+                1500,
+                'Web Developer 💻',
+                1500,
+                'Competitive Programmer ⚡',
+                1500,
+                'Problem Solver 🎯',
+                1500,
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ display: 'inline-block' }}
+              repeat={Infinity}
+            />
+          </motion.div>
 
           {/* Location */}
           <motion.div
@@ -99,7 +104,7 @@ export default function HeroSection() {
             transition={{ delay: 0.7 }}
             className="text-primary hover:text-primary-glow transition-colors cursor-pointer"
           >
-            raghavadhanukonda709@gmail.com
+            <a href="mailto:raghavadhanukonda709@gmail.com">raghavadhanukonda709@gmail.com</a>
           </motion.div>
 
           {/* Action Buttons */}
@@ -109,21 +114,25 @@ export default function HeroSection() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <Button
-              size="lg"
-              className="bg-gradient-primary hover:bg-gradient-glow shadow-neon hover:shadow-glow transition-all duration-300"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download Resume
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="neon-border hover:glow-effect transition-all duration-300"
-            >
-              <Code className="w-5 h-5 mr-2" />
-              View Projects
-            </Button>
+            <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-gradient-primary hover:bg-gradient-glow shadow-neon hover:shadow-glow transition-all duration-300"
+              >
+                Resume
+                <ExternalLink className="w-4 h-4 mr-2" />
+              </Button>
+            </a>
+            <a href="https://github.com/raghava7095?tab=repositories" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                size="lg"
+                className="neon-border hover:glow-effect transition-all duration-300"
+              >
+                <Code className="w-5 h-5 mr-2" />
+                View Projects
+              </Button>
+            </a>
           </motion.div>
 
           {/* Tech Stack Preview */}
@@ -133,7 +142,7 @@ export default function HeroSection() {
             transition={{ delay: 0.9 }}
             className="flex flex-wrap gap-2"
           >
-            {['React', 'TypeScript', 'Node.js', 'Python', 'C++'].map((tech, index) => (
+            {['React', 'MongoDB', 'Node.js', 'DSA', 'C++'].map((tech, index) => (
               <Badge
                 key={tech}
                 variant="outline"

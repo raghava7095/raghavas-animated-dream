@@ -8,112 +8,87 @@ import {
   Calendar, 
   MapPin, 
   Users, 
-  Award, 
-  Zap, 
   Code2, 
-  Target,
   ExternalLink,
-  Medal,
-  Star
+  Code,
+  GitBranch
 } from 'lucide-react';
 
 const experiences = [
   {
     type: 'Hackathon',
-    title: 'Smart India Hackathon 2023',
-    role: 'Team Lead & Full-Stack Developer',
-    organization: 'Government of India',
-    period: 'Aug 2023',
-    location: 'National Level',
-    description: 'Led a team of 6 developers to create an AI-powered traffic management system. Implemented real-time analytics dashboard and mobile app for traffic monitoring.',
+    title: 'SusHacks 2025',
+    role: 'Full-Stack Developer (Team Member)',
+    organization: 'VIIT',
+    period: 'April 2025',
+    location: 'Visakhapatnam, India',
+    description: 'Developed GapFinder Explorer, an AI-powered gap analysis tool that identifies missing concepts in learning materials and generates tailored learning recommendations.',
     achievements: [
-      'Secured Top 10 position among 1000+ teams',
-      'Implemented ML model for traffic prediction',
-      'Built responsive dashboard with React & Node.js'
+      'Secured Top 10 position among 120+ teams',
+      'Implemented AI model with 90% accuracy in concept gap identification',
+      'Built responsive dashboard with React & Node.js',
+      'Created interactive topic workflows that improved user comprehension by 40%'
     ],
-    tech: ['React', 'Node.js', 'Python', 'TensorFlow', 'MongoDB'],
+    tech: ['React', 'Node.js', 'Express', 'Gemini API', 'MongoDB'],
     icon: Trophy,
     color: 'text-accent'
   },
   {
     type: 'Internship',
-    title: 'Software Development Intern',
+    title: 'Software Engineering Intern',
     role: 'Frontend Developer',
-    organization: 'TechCorp Solutions',
-    period: 'Jun 2023 - Aug 2023',
+    organization: 'Shoppeal Tech',
+    period: 'April 2025 - June 2025',
     location: 'Remote',
-    description: 'Developed responsive web applications using React and TypeScript. Collaborated with backend team to integrate RESTful APIs and optimize application performance.',
+    description: 'Worked on developing dynamic frontend solutions using modern web technologies and content management systems.',
     achievements: [
-      'Improved app performance by 40%',
-      'Implemented new feature reducing user onboarding time',
-      'Mentored 2 junior developers'
+      'Engineered a centralized, fully dynamic frontend page using Next.js 15, React.js, and GraphQL',
+      'Built a custom Strapi Bulk Importer tool for efficient data onboarding',
+      'Optimized 10+ GraphQL queries, reducing load times by 30% on dynamic routes',
+      'Collaborated on scalable web architecture design with the founder'
     ],
-    tech: ['React', 'TypeScript', 'Redux', 'Tailwind CSS', 'Jest'],
+    tech: ['Next.js 15', 'React', 'GraphQL', 'Strapi', 'Azure'],
     icon: Code2,
     color: 'text-primary'
   },
   {
-    type: 'Competition',
-    title: 'ACM ICPC Regional Contest',
-    role: 'Competitive Programmer',
-    organization: 'ACM',
-    period: 'Dec 2022 - Present',
-    location: 'Multiple Locations',
-    description: 'Participated in prestigious programming competitions, solving complex algorithmic problems under time pressure. Consistently ranked in top percentile.',
+    type: 'Leadership',
+    title: 'Competitive Programming Lead',
+    role: 'Mentor & Organizer',
+    organization: 'ACM VIIT',
+    period: 'April 2025 - Present',
+    location: 'Visakhapatnam, India',
+    description: 'Leading and mentoring students in competitive programming and organizing coding contests at the college level.',
     achievements: [
-      'Regional Qualifier in ICPC 2023',
-      'Solved 500+ problems on various platforms',
-      'Specialist rating on Codeforces'
+      'Mentored 50+ students in data structures and algorithms',
+      'Organized bi-weekly coding contests for 100+ participants',
+      'Developed practice problems and learning materials',
+      'Conducted workshops on advanced algorithms and problem-solving techniques'
     ],
-    tech: ['C++', 'Data Structures', 'Algorithms', 'Dynamic Programming'],
-    icon: Medal,
+    tech: ['C++', 'Python', 'Data Structures', 'Algorithms', 'Problem Solving'],
+    icon: Code,
     color: 'text-secondary'
   },
   {
-    type: 'Project',
-    title: 'Open Source Contributor',
-    role: 'Developer & Maintainer',
-    organization: 'Various OSS Projects',
-    period: 'Jan 2022 - Present',
-    location: 'Global',
-    description: 'Active contributor to open source projects, focusing on React ecosystem and developer tools. Maintained personal projects with community contributions.',
+    type: 'Internship',
+    title: 'Web Developer Intern',
+    role: 'Frontend Developer',
+    organization: 'MotionCut Pvt Ltd',
+    period: 'May 2024 - June 2024',
+    location: 'Remote',
+    description: 'Developed responsive web applications with a focus on user experience and performance optimization.',
     achievements: [
-      '50+ contributions across repositories',
-      'Created npm package with 1K+ downloads',
-      'Participated in Hacktoberfest 2022 & 2023'
+      'Built a dynamic pricing page with real-time updates',
+      'Developed an e-commerce site with secure checkout functionality',
+      'Created a task management application with local storage integration',
+      'Improved UI/UX by designing interactive components and optimizing performance'
     ],
-    tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Git'],
-    icon: Star,
-    color: 'text-primary-glow'
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'UI/UX'],
+    icon: GitBranch,
+    color: 'text-success'
   }
 ];
 
-const achievements = [
-  {
-    title: 'Dean\'s List Scholar',
-    description: 'Academic Excellence Award for maintaining GPA above 9.0',
-    year: '2023',
-    icon: Award
-  },
-  {
-    title: 'Coding Competition Winner',
-    description: 'First place in university-level coding competition',
-    year: '2023',
-    icon: Trophy
-  },
-  {
-    title: 'Innovation Award',
-    description: 'Best innovative project in college tech fest',
-    year: '2022',
-    icon: Zap
-  },
-  {
-    title: 'Leadership Recognition',
-    description: 'Outstanding leadership in student technical society',
-    year: '2022',
-    icon: Target
-  }
-];
 
 export default function ExperienceSection() {
   return (
@@ -227,43 +202,6 @@ export default function ExperienceSection() {
           </div>
         </motion.div>
 
-        {/* Achievements Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-3xl font-bold text-center mb-12">Awards & Recognition</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {achievements.map((achievement, index) => {
-              const IconComponent = achievement.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Card className="glass-effect border-0 shadow-card hover:shadow-glow transition-all duration-300 text-center h-full">
-                    <CardContent className="p-6">
-                      <div className="mb-4">
-                        <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                          <IconComponent className="w-8 h-8 text-primary-foreground" />
-                        </div>
-                        <Badge variant="outline" className="mb-2">{achievement.year}</Badge>
-                      </div>
-                      <h4 className="font-semibold mb-2">{achievement.title}</h4>
-                      <p className="text-sm text-muted-foreground">{achievement.description}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -278,14 +216,11 @@ export default function ExperienceSection() {
                 I'm always excited about new opportunities and challenges. Let's connect and create something extraordinary!
               </p>
               <div className="flex flex-wrap justify-center gap-4">
+                <a href="https://www.linkedin.com/in/raghava-dhanukonda-9b3243254/" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-gradient-primary hover:bg-gradient-glow shadow-neon">
                   <ExternalLink className="w-5 h-5 mr-2" />
                   View LinkedIn
-                </Button>
-                <Button variant="outline" className="neon-border hover:glow-effect">
-                  <Users className="w-5 h-5 mr-2" />
-                  Connect
-                </Button>
+                </Button></a>
               </div>
             </CardContent>
           </Card>

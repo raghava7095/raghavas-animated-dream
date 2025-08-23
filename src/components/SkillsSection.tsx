@@ -22,11 +22,9 @@ const technicalSkills = [
     icon: Code,
     color: 'text-primary',
     skills: [
-      { name: 'C++', level: 90, description: 'Competitive Programming, DSA' },
-      { name: 'Python', level: 85, description: 'Backend, Scripting, ML' },
+      { name: 'C++', level: 90, description: 'Competitive Programming, DSA, OOPs' },
+      { name: 'Python', level: 85, description: 'Data Science, ML' },
       { name: 'JavaScript', level: 88, description: 'Frontend, Node.js, React' },
-      { name: 'TypeScript', level: 82, description: 'Type-safe development' },
-      { name: 'Java', level: 75, description: 'OOP, Spring Framework' },
     ]
   },
   {
@@ -36,9 +34,7 @@ const technicalSkills = [
     skills: [
       { name: 'React.js', level: 90, description: 'Modern UI development' },
       { name: 'Node.js', level: 85, description: 'Backend APIs, Express' },
-      { name: 'Next.js', level: 80, description: 'Full-stack React framework' },
-      { name: 'Tailwind CSS', level: 92, description: 'Utility-first styling' },
-      { name: 'HTML/CSS', level: 95, description: 'Semantic markup, responsive design' },
+      { name: 'Next.js', level: 70, description: 'Full-stack React framework' },
     ]
   },
   {
@@ -46,23 +42,21 @@ const technicalSkills = [
     icon: Database,
     color: 'text-accent',
     skills: [
-      { name: 'MongoDB', level: 85, description: 'NoSQL database design' },
-      { name: 'PostgreSQL', level: 80, description: 'Relational database management' },
+      { name: 'MongoDB', level: 88, description: 'NoSQL database design' },
+      { name: 'SQL', level: 85, description: 'Relational database management' },
       { name: 'Git/GitHub', level: 90, description: 'Version control, collaboration' },
-      { name: 'Docker', level: 70, description: 'Containerization' },
-      { name: 'AWS', level: 65, description: 'Cloud deployment' },
+      { name: 'VSCode', level: 90, description: 'Code editor, debugging' }
     ]
   },
   {
-    category: 'Mobile & Other',
+    category: 'Other',
     icon: Smartphone,
     color: 'text-primary-glow',
     skills: [
-      { name: 'React Native', level: 75, description: 'Cross-platform mobile apps' },
-      { name: 'Flutter', level: 70, description: 'Dart-based mobile development' },
       { name: 'GraphQL', level: 78, description: 'API query language' },
       { name: 'Firebase', level: 80, description: 'Backend as a service' },
       { name: 'Redux', level: 82, description: 'State management' },
+      { name: 'CORE CS Subjects', level: 85, description: 'DSA, CN, OS, DBMS' },  
     ]
   }
 ];
@@ -72,13 +66,13 @@ const softSkills = [
     name: 'Problem Solving',
     icon: Brain,
     level: 95,
-    description: '500+ competitive programming problems solved'
+    description: '900+ competitive programming problems solved & 120+ Coding Contests Participated'
   },
   {
     name: 'Team Collaboration',
     icon: Users,
     level: 88,
-    description: 'Experience in hackathons and group projects'
+    description: 'Experience in hackathons, internships and group projects'
   },
   {
     name: 'Communication',
@@ -90,19 +84,13 @@ const softSkills = [
     name: 'Leadership',
     icon: Target,
     level: 80,
-    description: 'Led development teams in multiple projects'
+    description: 'Led development teams in multiple projects & 5+ hackathons & Led CP Sessions'
   },
   {
     name: 'Adaptability',
     icon: Zap,
     level: 90,
     description: 'Quick learner, stays updated with tech trends'
-  },
-  {
-    name: 'Creativity',
-    icon: Palette,
-    level: 85,
-    description: 'Innovative solutions and UI/UX design thinking'
   }
 ];
 
@@ -185,21 +173,19 @@ export default function SkillsSection() {
                             </Badge>
                           </div>
                           <div className="relative">
-                            <Progress 
-                              value={skill.level} 
-                              className="h-2"
-                            />
-                            <motion.div
-                              className="absolute top-0 left-0 h-full bg-gradient-primary rounded-full"
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${skill.level}%` }}
-                              viewport={{ once: true }}
-                              transition={{ 
-                                duration: 1, 
-                                delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                                ease: "easeOut"
-                              }}
-                            />
+                            <div className="w-full bg-muted rounded-full h-2">
+                              <motion.div
+                                className="h-full bg-gradient-primary rounded-full"
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${skill.level}%` }}
+                                viewport={{ once: true }}
+                                transition={{ 
+                                  duration: 1.2, 
+                                  delay: categoryIndex * 0.1 + skillIndex * 0.1,
+                                  ease: "easeOut"
+                                }}
+                              />
+                            </div>
                           </div>
                         </motion.div>
                       ))}

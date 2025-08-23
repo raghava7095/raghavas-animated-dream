@@ -134,7 +134,7 @@ export default function SecretsSection() {
   const [showPassword, setShowPassword] = useState(false);
   const [activeTab, setActiveTab] = useState('personal');
 
-  const correctPassword = 'raghava2024'; // In real app, this would be more secure!
+  const correctPassword = 'raghava2005'; // In real app, this would be more secure!
 
   const handleUnlock = () => {
     if (password.toLowerCase() === correctPassword) {
@@ -221,9 +221,7 @@ export default function SecretsSection() {
                     <span className="text-sm">Hint for the curious minds:</span>
                   </div>
                   <div className="space-y-2 text-sm text-muted-foreground">
-                    <p>🔍 It's my name + year (lowercase)</p>
-                    <p>💡 Format: firstname + 2024</p>
-                    <p>🎯 Example pattern: john2024</p>
+                    <p>🔍 It's my name + my born year </p>
                   </div>
                 </div>
 

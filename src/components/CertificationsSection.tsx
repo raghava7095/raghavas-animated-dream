@@ -11,90 +11,103 @@ import {
   Star, 
   Trophy,
   Target,
-  Zap
+  Zap,
+  Code
 } from 'lucide-react';
 
 const certifications = [
   {
-    title: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    date: 'Dec 2023',
-    status: 'Active',
-    credentialId: 'AWS-CCP-2023-RD',
-    description: 'Fundamental understanding of AWS Cloud concepts, services, and terminology.',
-    skills: ['Cloud Computing', 'AWS Services', 'Security', 'Pricing'],
-    color: 'text-orange-400',
-    bgColor: 'bg-orange-400/10',
-    icon: Award
-  },
-  {
-    title: 'Google Cloud Associate Engineer',
-    issuer: 'Google Cloud',
-    date: 'Nov 2023',
-    status: 'Active',
-    credentialId: 'GCP-ACE-2023-RD',
-    description: 'Deploy applications, monitor operations, and manage enterprise solutions on Google Cloud.',
-    skills: ['GCP Services', 'Kubernetes', 'Container Management', 'Cloud Architecture'],
+    title: 'Responsive Web Design',
+    issuer: 'freeCodeCamp',
+    date: '2024',
+    status: 'Earned',
+    credentialId: 'Responsive-Web-Design',
+    description: 'Learned to build responsive web applications with HTML5, CSS3, and modern web design principles.',
+    skills: ['HTML5', 'CSS3', 'Responsive Design', 'Accessibility'],
     color: 'text-blue-400',
     bgColor: 'bg-blue-400/10',
-    icon: Trophy
+    icon: Award,
+    link: 'https://www.freecodecamp.org/certification/raghava18/responsive-web-design',
+    tags: ['Web Development', 'Frontend']
   },
   {
-    title: 'Meta React Developer Certificate',
-    issuer: 'Meta (Facebook)',
-    date: 'Oct 2023',
-    status: 'Active',
-    credentialId: 'META-REACT-2023-RD',
-    description: 'Professional-level skills in React development and modern JavaScript.',
-    skills: ['React.js', 'JSX', 'State Management', 'Component Architecture'],
-    color: 'text-cyan-400',
-    bgColor: 'bg-cyan-400/10',
-    icon: Star
-  },
-  {
-    title: 'MongoDB Developer Path',
-    issuer: 'MongoDB University',
-    date: 'Sep 2023',
-    status: 'Active',
-    credentialId: 'MONGO-DEV-2023-RD',
-    description: 'Comprehensive understanding of MongoDB database development and operations.',
-    skills: ['NoSQL', 'Database Design', 'Aggregation', 'Performance Optimization'],
-    color: 'text-green-400',
-    bgColor: 'bg-green-400/10',
-    icon: Target
-  },
-  {
-    title: 'Docker Certified Associate',
-    issuer: 'Docker Inc.',
-    date: 'Aug 2023',
-    status: 'Active',
-    credentialId: 'DOCKER-DCA-2023-RD',
-    description: 'Expertise in containerization and Docker ecosystem technologies.',
-    skills: ['Containerization', 'Docker Compose', 'Container Orchestration', 'DevOps'],
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-500/10',
-    icon: Zap
-  },
-  {
-    title: 'Kubernetes Administrator (CKA)',
-    issuer: 'Cloud Native Computing Foundation',
-    date: 'Jul 2023',
-    status: 'Active',
-    credentialId: 'CKA-2023-RD',
-    description: 'Demonstrated skills in Kubernetes cluster administration and management.',
-    skills: ['Kubernetes', 'Cluster Management', 'Networking', 'Security'],
+    title: 'Frontend Web Developer',
+    issuer: 'Infosys Springboard',
+    date: '2025',
+    status: 'Earned',
+    credentialId: 'Frontend-Web-Dev',
+    description: 'Comprehensive training in modern frontend development technologies and best practices.',
+    skills: ['JavaScript', 'React', 'TypeScript', 'UI/UX'],
     color: 'text-purple-400',
     bgColor: 'bg-purple-400/10',
-    icon: Award
+    icon: Code,
+    link: 'https://drive.google.com/file/d/1HtisaKY3CETuMk1wzYkzYzaCSQyWS6SR/view?usp=sharing',
+    tags: ['Frontend', 'Web Development']
+  },
+  {
+    title: 'Git and GitHub Essentials',
+    issuer: 'EDX',
+    date: '2024',
+    status: 'Earned',
+    credentialId: 'Git-GitHub-Essentials',
+    description: 'Mastered version control with Git and collaborative development using GitHub.',
+    skills: ['Git', 'GitHub', 'Version Control', 'Collaboration'],
+    color: 'text-orange-400',
+    bgColor: 'bg-orange-400/10',
+    icon: Code,
+    link: 'https://www.credly.com/badges/fbd6112c-05ad-45d4-9658-443a61cb8838/linked_in_profile',
+    tags: ['Version Control', 'DevOps']
+  },
+  {
+    title: 'Python Demonstrations For Practice',
+    issuer: 'Udemy',
+    date: '2024',
+    status: 'Earned',
+    credentialId: 'Python-Practice',
+    description: 'Practical Python programming with hands-on exercises and real-world examples.',
+    skills: ['Python', 'Algorithms', 'Problem Solving', 'Data Structures'],
+    color: 'text-yellow-400',
+    bgColor: 'bg-yellow-400/10',
+    icon: Code,
+    link: 'https://www.udemy.com/certificate/UC-632c49dd-ded6-4119-a9aa-4f8f2ebb5fb5/',
+    tags: ['Python', 'Programming']
+  },
+  {
+    title: 'Postman API Fundamentals',
+    issuer: 'Postman',
+    date: '2024',
+    status: 'Earned',
+    credentialId: 'Postman-API',
+    description: 'Learned API development and testing using Postman, including collections, environments, and automation.',
+    skills: ['API Testing', 'Postman', 'REST', 'Automation'],
+    color: 'text-orange-500',
+    bgColor: 'bg-orange-500/10',
+    icon: Code,
+    link: 'https://badgr.com/public/assertions/rtn2-CekSdKN6wE_CcPUaw',
+    tags: ['API', 'Testing']
+  },
+  {
+    title: 'Relational Database Basics',
+    issuer: 'EDX',
+    date: '2024',
+    status: 'Earned',
+    credentialId: 'Relational-DB',
+    description: 'Fundamentals of relational databases including SQL, database design, and query optimization.',
+    skills: ['SQL', 'Database Design', 'Normalization', 'Query Optimization'],
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-600/10',
+    icon: Code,
+    link: 'https://www.credly.com/badges/44ca27e0-8850-49f6-8af6-cd186a4a340d/linked_in_profile',
+    tags: ['Database', 'SQL']
   }
 ];
 
 const achievements = [
   {
-    title: 'HackerRank 5-Star Problem Solver',
-    description: 'Achieved 5-star rating in multiple domains including algorithms and data structures',
-    badge: '⭐⭐⭐⭐⭐',
-    color: 'text-yellow-400'
+    title: 'CodeChef 3-Star Coder',
+    description: 'Achieved 3-star rating with consistent performance in monthly contests',
+    badge: '⭐⭐⭐',
+    color: 'text-yellow-500'
   },
   {
     title: 'LeetCode Knight Badge',
@@ -103,16 +116,16 @@ const achievements = [
     color: 'text-orange-400'
   },
   {
-    title: 'CodeChef 3-Star Coder',
-    description: 'Achieved 3-star rating with consistent performance in monthly contests',
-    badge: '⭐⭐⭐',
-    color: 'text-yellow-500'
+    title: 'Codeforces First Contest',
+    description: 'Achieved +636 rating and global rank 683 in first Div3 contest',
+    badge: '🏆',
+    color: 'text-orange-400'
   },
   {
-    title: 'GitHub Arctic Code Vault Contributor',
-    description: 'Code contributions preserved in the GitHub Arctic Code Vault',
-    badge: '🧊',
-    color: 'text-cyan-400'
+    title: 'Core Web Developer',
+    description: 'Contributed to web-based initiatives at AP-SSYM (Sathya Sai Young Messengers)',
+    badge: '🌐',
+    color: 'text-blue-400'   
   }
 ];
 
@@ -135,18 +148,19 @@ export default function CertificationsSection() {
 
         {/* Certifications Grid */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12"
         >
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => {
               const IconComponent = cert.icon;
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
@@ -201,17 +215,21 @@ export default function CertificationsSection() {
                       </div>
                       
                       <div className="pt-2">
-                        <div className="text-xs text-muted-foreground mb-2">
-                          Credential ID: <code className="bg-muted px-1 rounded">{cert.credentialId}</code>
-                        </div>
-                        <Button 
-                          size="sm" 
-                          variant="outline" 
-                          className="w-full text-xs hover:bg-gradient-primary hover:text-primary-foreground hover:border-primary transition-all"
+                        <a 
+                          href={cert.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="block w-full"
                         >
-                          <ExternalLink className="w-3 h-3 mr-1" />
-                          Verify Certificate
-                        </Button>
+                          <Button 
+                            size="sm" 
+                            variant="outline" 
+                            className="w-full text-xs hover:bg-gradient-primary hover:text-primary-foreground hover:border-primary transition-all"
+                          >
+                            <ExternalLink className="w-3 h-3 mr-1" />
+                            Verify Certificate
+                          </Button>
+                        </a>
                       </div>
                     </CardContent>
                   </Card>
@@ -273,7 +291,7 @@ export default function CertificationsSection() {
                   whileHover={{ scale: 1.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-3xl font-bold gradient-text">{certifications.length}</div>
+                  <div className="text-3xl font-bold gradient-text">18</div>
                   <div className="text-muted-foreground">Active Certifications</div>
                 </motion.div>
                 <motion.div
@@ -287,7 +305,7 @@ export default function CertificationsSection() {
                   whileHover={{ scale: 1.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-3xl font-bold text-secondary">2023</div>
+                  <div className="text-3xl font-bold text-secondary">2025</div>
                   <div className="text-muted-foreground">Latest Year</div>
                 </motion.div>
                 <motion.div
@@ -317,13 +335,10 @@ export default function CertificationsSection() {
                 These certifications represent my commitment to professional growth and technical excellence.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-gradient-primary hover:bg-gradient-glow shadow-neon">
+                <Button className="bg-gradient-primary hover:bg-gradient-glow shadow-neon"
+                 onClick={() => window.open('https://www.linkedin.com/in/raghava-dhanukonda-9b3243254/details/certifications/', '_blank', 'noopener,noreferrer')}>
                   <ExternalLink className="w-5 h-5 mr-2" />
                   View All Certificates
-                </Button>
-                <Button variant="outline" className="neon-border hover:glow-effect">
-                  <Trophy className="w-5 h-5 mr-2" />
-                  LinkedIn Profile
                 </Button>
               </div>
             </CardContent>
