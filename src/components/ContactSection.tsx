@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -72,6 +73,8 @@ const quickActions = [
 
 export default function ContactSection() {
   const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -86,14 +89,42 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out! I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsLoading(true);
+
+    // Replace these with your actual EmailJS credentials
+    const serviceId = 'service_0wsbzpb';
+    const templateId = 'template_81wmdin';
+    const publicKey = 'dTCL0nOFZgySIcuT9';
+
+    try {
+      if (!form.current) return;
+      
+      await emailjs.sendForm(
+        serviceId,
+        templateId,
+        form.current,
+        publicKey
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out! I'll get back to you soon.",
+        variant: "default",
+      });
+      
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const copyToClipboard = (text: string) => {
@@ -112,7 +143,7 @@ export default function ContactSection() {
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -120,21 +151,21 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold gradient-text mb-6">Let's Connect</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl font-bold gradient-text mb-4 sm:mb-6">Let's Connect</h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
             Ready to collaborate? I'm always excited to discuss new opportunities, projects, or just chat about technology!
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 w-full"
           >
-            <Card className="glass-effect border-0 shadow-card">
+            <Card className="glass-effect border-0 shadow-card overflow-hidden">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2 text-2xl">
                   <Send className="w-6 h-6 text-primary" />
@@ -145,8 +176,8 @@ export default function ContactSection() {
                 </p>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium">
                         Name *
@@ -203,9 +234,9 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Tell me about your project or opportunity..."
-                      rows={6}
+                      rows={5}
                       required
-                      className="glass-effect border-border focus:border-primary resize-none"
+                      className="glass-effect border-border focus:border-primary resize-none min-h-[120px]"
                     />
                   </div>
                   
@@ -215,10 +246,23 @@ export default function ContactSection() {
                   >
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-primary hover:bg-gradient-glow shadow-neon text-lg py-6"
+                      className="w-full bg-gradient-primary hover:bg-gradient-glow shadow-neon text-base sm:text-lg py-4 sm:py-6"
+                      disabled={isLoading}
                     >
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
                   </motion.div>
                 </form>
@@ -235,10 +279,10 @@ export default function ContactSection() {
           >
             {/* Contact Methods */}
             <Card className="glass-effect border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="text-xl">Contact Information</CardTitle>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg sm:text-xl">Contact Information</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 sm:space-y-6">
                 {contactMethods.map((method, index) => {
                   const IconComponent = method.icon;
                   return (
@@ -250,8 +294,8 @@ export default function ContactSection() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start space-x-4 group"
                     >
-                      <div className={`p-3 rounded-full bg-card ${method.color} group-hover:animate-pulse`}>
-                        <IconComponent className="w-5 h-5" />
+                      <div className={`p-2 sm:p-3 rounded-full bg-card ${method.color} group-hover:animate-pulse flex-shrink-0`}>
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-semibold">{method.title}</h4>
@@ -281,11 +325,11 @@ export default function ContactSection() {
               </CardContent>
             </Card>
             {/* Location */}
-            <Card className="glass-effect border-0 shadow-card">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-3">
-                  <div className="p-2 rounded-full bg-card text-primary">
-                    <MapPin className="w-5 h-5" />
+            <Card className="glass-effect border-0 shadow-card overflow-hidden">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-start space-x-3 mb-3">
+                  <div className="p-2 rounded-full bg-card text-primary flex-shrink-0">
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <h4 className="font-semibold">Location</h4>
@@ -309,10 +353,10 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Card className="glass-effect border-0 shadow-card bg-gradient-to-r from-primary/10 to-secondary/10 inline-block">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4">Thanks for visiting my portfolio! 🚀</h3>
-              <p className="text-muted-foreground max-w-2xl">
+          <Card className="glass-effect border-0 shadow-card bg-gradient-to-r from-primary/10 to-secondary/10 w-full max-w-4xl mx-auto">
+            <CardContent className="p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Thanks for visiting my portfolio! 🚀</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">
                 Whether you're looking for a passionate developer, want to collaborate on a project, 
                 or just want to connect and share ideas about technology - I'd love to hear from you. 
                 Let's build something amazing together!

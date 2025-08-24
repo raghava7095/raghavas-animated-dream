@@ -155,12 +155,12 @@ export default function SecretsSection() {
   if (!isUnlocked) {
     return (
       <section id="secrets" className="py-20 relative">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
+            className="max-w-2xl mx-auto px-4 sm:px-6 text-center"
           >
             <Card className="glass-effect border-0 shadow-intense neon-border">
               <CardHeader className="text-center">
@@ -180,14 +180,14 @@ export default function SecretsSection() {
                 </p>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="space-y-4">
-                  <div className="relative">
+                <div className="space-y-4 px-4 sm:px-0">
+                  <div className="relative w-full max-w-md mx-auto">
                     <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter the secret password..."
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="pr-12 text-center text-lg glass-effect border-primary/50 focus:border-primary"
+                      className="w-full pr-12 text-center text-base sm:text-lg glass-effect border-primary/50 focus:border-primary"
                       onKeyPress={(e) => e.key === 'Enter' && handleUnlock()}
                     />
                     <Button
@@ -240,7 +240,7 @@ export default function SecretsSection() {
 
   return (
     <section id="secrets" className="py-20 relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Success Header */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -266,25 +266,22 @@ export default function SecretsSection() {
           animate={{ opacity: 1, y: 0 }}
           className="flex justify-center mb-12"
         >
-          <div className="flex space-x-2 glass-effect rounded-full p-2">
-            {tabs.map((tab) => {
-              const IconComponent = tab.icon;
-              return (
-                <Button
-                  key={tab.id}
-                  variant={activeTab === tab.id ? "default" : "ghost"}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`rounded-full px-6 py-3 transition-all ${
-                    activeTab === tab.id 
-                      ? 'bg-gradient-primary text-primary-foreground shadow-neon' 
-                      : 'hover:bg-card'
-                  }`}
-                >
-                  <IconComponent className="w-4 h-4 mr-2" />
-                  {tab.name}
-                </Button>
-              );
-            })}
+          <div className="flex space-x-2 glass-effect rounded-full p-1 bg-secondary/10 flex-nowrap">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors whitespace-nowrap ${
+                  activeTab === tab.id
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <tab.icon className="inline-block w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">{tab.name}</span>
+                <span className="sm:hidden">{tab.name.split(' ')[0]}</span>
+              </button>
+            ))}
           </div>
         </motion.div>
 
@@ -296,31 +293,30 @@ export default function SecretsSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="grid md:grid-cols-2 gap-6"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
             >
-              {secretData.personalQA.map((qa, index) => {
-                const IconComponent = qa.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Card className="glass-effect border-0 shadow-card hover:shadow-glow transition-all duration-300 h-full">
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-3 mb-4">
-                          <div className={`p-2 rounded-full bg-card ${qa.color}`}>
-                            <IconComponent className="w-5 h-5" />
-                          </div>
-                          <h4 className="font-semibold text-lg leading-tight">{qa.q}</h4>
+              {secretData.personalQA.map((qa, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card key={index} className="glass-effect border-0 shadow-card hover:shadow-xl transition-shadow h-full">
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center space-x-2">
+                        <div className={`p-2 rounded-full ${qa.color} bg-opacity-20`}>
+                          <qa.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${qa.color}`} />
                         </div>
-                        <p className="text-muted-foreground leading-relaxed">{qa.a}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
+                        <CardTitle className="text-base sm:text-lg">{qa.q}</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm sm:text-base text-muted-foreground">{qa.a}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           )}
 
@@ -330,31 +326,30 @@ export default function SecretsSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="grid md:grid-cols-2 gap-6"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
             >
-              {secretData.technicalQA.map((qa, index) => {
-                const IconComponent = qa.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Card className="glass-effect border-0 shadow-card hover:shadow-glow transition-all duration-300 h-full">
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-3 mb-4">
-                          <div className={`p-2 rounded-full bg-card ${qa.color}`}>
-                            <IconComponent className="w-5 h-5" />
-                          </div>
-                          <h4 className="font-semibold text-lg leading-tight">{qa.q}</h4>
+              {secretData.technicalQA.map((qa, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card key={index} className="glass-effect border-0 shadow-card hover:shadow-xl transition-shadow h-full">
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center space-x-2">
+                        <div className={`p-2 rounded-full ${qa.color} bg-opacity-20`}>
+                          <qa.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${qa.color}`} />
                         </div>
-                        <p className="text-muted-foreground leading-relaxed">{qa.a}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
+                        <CardTitle className="text-base sm:text-lg">{qa.q}</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm sm:text-base text-muted-foreground">{qa.a}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           )}
 
@@ -364,29 +359,27 @@ export default function SecretsSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
             >
-              {secretData.funFacts.map((fact, index) => {
-                const IconComponent = fact.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Card className="glass-effect border-0 shadow-card hover:shadow-neon transition-all duration-300 h-full">
-                      <CardContent className="p-6 text-center">
-                        <div className={`w-12 h-12 bg-card rounded-full flex items-center justify-center mx-auto mb-4 ${fact.color}`}>
-                          <IconComponent className="w-6 h-6" />
+              {secretData.funFacts.map((fact, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <Card key={index} className="glass-effect border-0 shadow-card hover:shadow-xl transition-shadow h-full">
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center space-x-2">
+                        <div className={`p-2 rounded-full ${fact.color} bg-opacity-20`}>
+                          <fact.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${fact.color}`} />
                         </div>
-                        <p className="text-muted-foreground leading-relaxed">{fact.fact}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
+                        <CardTitle className="text-base sm:text-lg">{fact.fact}</CardTitle>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           )}
 
@@ -398,31 +391,28 @@ export default function SecretsSection() {
               exit={{ opacity: 0, x: 20 }}
               className="space-y-8"
             >
-              {secretData.exclusiveInsights.map((insight, index) => {
-                const IconComponent = insight.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                  >
-                    <Card className="glass-effect border-0 shadow-card hover:shadow-glow transition-all duration-300">
-                      <CardContent className="p-8">
-                        <div className="flex items-start space-x-4">
-                          <div className={`p-3 rounded-full bg-card ${insight.color} flex-shrink-0`}>
-                            <IconComponent className="w-6 h-6" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-bold mb-3">{insight.title}</h3>
-                            <p className="text-muted-foreground text-lg leading-relaxed">{insight.content}</p>
-                          </div>
+              {secretData.exclusiveInsights.map((insight, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <Card key={index} className="glass-effect border-0 shadow-card hover:shadow-xl transition-shadow">
+                    <CardContent className="p-8">
+                      <div className="flex items-start space-x-4">
+                        <div className={`p-3 rounded-full ${insight.color} bg-opacity-20 flex-shrink-0`}>
+                          <insight.icon className={`w-6 h-6 ${insight.color}`} />
                         </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold mb-3">{insight.title}</h3>
+                          <p className="text-muted-foreground text-lg leading-relaxed">{insight.content}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           )}
         </AnimatePresence>
