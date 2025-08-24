@@ -127,7 +127,7 @@ export default function Navbar() {
             >
               <Instagram size={20} />
             </motion.a>
-            <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1G4jDE8VfV_SnZ_6V1pTccjPPd7pBilFg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
                 size="sm"
