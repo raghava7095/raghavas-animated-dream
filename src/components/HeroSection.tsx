@@ -94,7 +94,7 @@ export default function HeroSection() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1G4jDE8VfV_SnZ_6V1pTccjPPd7pBilFg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="bg-gradient-primary hover:bg-gradient-glow shadow-neon hover:shadow-glow transition-all duration-300"
