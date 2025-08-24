@@ -150,7 +150,7 @@ export default function AboutSection() {
             </Card>
 
             <div className="flex gap-4">
-              <a href="https://drive.google.com/file/d/1ELJY2MGgh6vbq4ThiKgLklZSuBdoztff/view">
+              <a href="https://drive.google.com/file/d/1G4jDE8VfV_SnZ_6V1pTccjPPd7pBilFg/view?usp=sharing">
               <Button className="flex-1 bg-gradient-primary hover:bg-gradient-glow shadow-neon">
               <ExternalLink className="w-4 h-4 mr-2" />
                 Full Resume
